@@ -1,0 +1,36 @@
+package com.metanit;
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        double y = 1;
+        double answer = 1;
+        int factorial = 1;
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите точку вычисления");
+        double x = in.nextDouble();
+        System.out.println("Введите точность");
+        double a = in.nextDouble();
+        int i = 1;
+        if(x>0) {
+            y = 1;
+            while (a <= y) {
+                y = (double) (y*x) / i;
+                answer = answer + y;
+                i++;
+            }
+            System.out.println("Ответ: " + answer);
+        }
+        if(x<0) {
+            while (a <= Math.abs(y)){
+                y = (double) (y*x) / i;
+                answer = answer + y;
+                i++;
+            }
+            System.out.println("Ответ: " + answer);
+        }
+        if(x==0) {
+            System.out.println("Ответ: " + answer);
+        }
+    }
+}

@@ -1,0 +1,135 @@
+final class Point3D
+{
+    //точка в трехмерном про-ве
+
+    private double xCoord; // координата x
+    private double yCoord; // координата y
+    private double zCoord; // координата z
+
+    /*
+     * Конструктор класса через начальные координаты
+     *
+     * @param x, y, z - начальные координаты точки
+     */
+    public Point3D(double x, double y, double z){
+        xCoord = x;
+        yCoord = y;
+        zCoord = z;
+    }
+
+    /*
+     * Конусруктор через другой экземпляр того ж класса
+     *
+     * @param sec - второй класс, из кот-ого и будет копировать координаты точки к нашей
+     */
+    public Point3D(Point3D sec){
+        this(sec.getX(), sec.getY(), sec.getZ()); // вызов кон-ра по-умолч
+    }
+
+    /*
+     * Конутрсктор класса по-умолчанию
+     */
+    public Point3D(){
+        this(0.0, 0.0, 0.0); // установление координат точки в (0.0, 0.0, 0.0) по-умолчанию
+    }
+
+    /*
+     * Возвращает координату по x
+     *
+     * @return xCoord - координата по x
+     */
+    public double getX(){
+        return xCoord;
+    }
+
+    /*
+     * Возвращает координату по y
+     *
+     * @return yCoord - координата по y
+     */
+    public double getY(){
+        return yCoord;
+    }
+
+    /*
+     * Возвращает координату по z
+     *
+     * @return zCoord - координата по z
+     */
+    public double getZ(){
+        return zCoord;
+    }
+
+    /*
+     * Установить значение координаты x
+     *
+     * @param val - новое значение координаты x
+     */
+    public void setX(double val){
+        xCoord = val;
+    }
+
+
+    /*
+     * Установить значение координаты y
+     *
+     * @param val - новое значение координаты y
+     */
+    public void setY(double val){
+        yCoord = val;
+    }
+
+    /*
+     * Установить значение координаты z
+     *
+     * @param val - новое значение координаты z
+     */
+    public void setZ(double val){
+        zCoord = val;
+    }
+
+    /*
+     * Проверка двух точек на эквивалентность
+     *
+     * @param <code>anObject</code> объект, с кот-ым сравниваем наш экз класса(точку)
+     * @return <code>true</code> если 2 объекта одинаковые, <code>false</code> иначе
+     */
+    @Override
+    public boolean equals(Object anObject){
+        if(this == anObject){ // проверка ссылок объектов
+            return true;
+        }
+        if(anObject instanceof Point3D){ // совпадают ли типы
+            Point3D p3d = (Point3D)anObject;
+            return (xCoord == p3d.getX() && // проверяем совпадение координат по x
+                    yCoord == p3d.getY() && // по y
+                    zCoord == p3d.getZ()); // по z
+        }
+        return false;
+    }
+
+    /*
+     * Вычисление расстояние от точки до точки
+     * sqrt( pow(x-x0, 2) + pow(y-y0, 2) + pow(z-z0, 2))
+     *
+     * @param p3d вторая точка(до кот-ой находим расстояние)
+     * @return расстояние от точки (xCoord, yCoord, zCoord) до p3d (p3d.getX(),...)
+     */
+    public double distanceTo(Point3D p3d){
+        return sqrt(
+                pow(xCoord - p3d.getX(), 2) +
+                        pow(yCoord - p3d.getY(), 2) +
+                        pow(zCoord - p3d.getZ(), 2)
+        );
+    }
+
+    /*
+     * Вывод точки на экран
+     *
+     * @return (<code>xCoord</code>, <code>yCoord</code>, <code>zCoord</code>) в формете <code>String</code>
+     */
+    @Override
+    public String toString(){
+        return "(" + xCoord + ", " + yCoord + ", " + zCoord + ")";
+    }
+}

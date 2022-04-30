@@ -1,0 +1,28 @@
+package com.metanit;
+
+import java.util.Scanner;
+
+import static java.lang.Math.sin;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Введите пределы синуса (a,b) и  шаг (n):");
+        double y;
+        double x;
+        System.out.print("a=");double a = s.nextDouble();
+        System.out.print("b=");double b = s.nextDouble();
+        System.out.print("n=");double n = s.nextDouble();
+        System.out.println();
+
+        if (a > b && a>n||n>b) {
+            System.out.println("Вычисление невозможно");
+        } else {
+            for (x = a; x <= b; x += n) {
+                y = sin(x);
+                System.out.printf("sin=%f\n", y);
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+package com.metanit;
+import java.util.Scanner;
+import java.lang.Double;
+
+import static java.lang.Math.sqrt;
+
+
+public class Main {
+
+public static void main(String[] args) throws java.lang.Exception {
+Scanner in = new Scanner(System.in);
+double a = in.nextDouble();
+double b = in.nextDouble();
+double c = in.nextDouble();
+double x1;
+double x2;
+
+if (a == 0 && b == 0 & c == 0) {
+System.out.println("Корней будет бесконечное множество.");
+} else {
+if (a == 0 && b == 0) {
+System.out.println("Корней нет.");
+} else {
+if ( (a == 0 && c == 0) || (b == 0 && c == 0)) {
+x1 = 0;
+System.out.println("Корень будет 1. Это всегда: " + x1);
+
+} else {
+
+
+if (c == 0) {
+x1 = 0;
+x2 = (b / a);
+System.out.print("Корней будет 2. Это: " + x1 + " и " + x2);
+
+}
+
+if (b == 0) {
+if (c < 0) {
+c = c * (-1);
+}
+if (a < 0) {
+a = a * (-1);
+}
+x1 = sqrt(c / a);
+x2 = -1 * sqrt(c / a);
+System.out.print("Корней будет 2. Это: " + x1 + " и " + x2);
+}
+
+if (a == 0) {
+x1 = (c / b);
+System.out.print("Корень будет 1. Это: " + x1);
+
+}
+}
+}
+}
+if(a!=0&&b!=0&&c!=0){
+double D;
+
+D = (b * b - 4 * a * c);
+if (D > 0) {
+x1 = ((-b + sqrt(D)) / 2 * a);
+x2 = ((-b - sqrt(D)) / 2 * a);
+System.out.print("Корней будет 2. Это: " + x1 + " и " + x2);
+}
+if (D == 0) {
+x1 = ((-b) / 2 * a);
+System.out.print("Корень будет 1. Это: " + x1);
+}
+if (D < 0) {
+System.out.print("Корней нет вовсе, когда дискриминант отрицателен.");
+}
+}
+}
+}

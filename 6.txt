@@ -1,0 +1,104 @@
+
+package com.metanit;
+
+import java.util.Scanner;
+import java.lang.Double;
+
+import static java.lang.Math.sqrt;
+
+
+public class Main {
+
+    public static void main(String[] args) throws java.lang.Exception {
+        Scanner in = new Scanner(System.in);
+        double a1 = in.nextDouble();
+        double b1 = in.nextDouble();
+        double c1 = in.nextDouble();
+        double a2 = in.nextDouble();
+        double b2 = in.nextDouble();
+        double c2 = in.nextDouble();
+        double b3;
+        double c3;
+        double x;
+        double x2;
+        double y;
+        double y2;
+        if (a1 == 0 && b1 == 0 || a2 == 0 && b2 == 0 || a1 == 0 && b1 == 0 && a2 == 0 || a1 == 0 && b1 == 0 && b2 == 0 || a2 == 0 && b2 == 0 && a1 == 0 || a2 == 0 && b2 == 0 && b1 == 0) {
+            System.out.print("Пустое множество.");
+        } else {
+            if (a1 == a2 && b1 == b2 && c1 == c2) {
+                if(b1>0){
+                    System.out.println("Корни (x,y)=("+c1+(b1*(-1))+"*y,y)");
+                }
+                else{
+                    System.out.println("Корни (x,y)=("+c1+"+"+(b1*(-1))+"*y,y)");
+                }
+            } else {
+                if (a1 == a2 && b1 == b2 && c1 != c2) {
+                    System.out.println("Пустое множество.");
+                } else {
+                    if (a1 != 0 && a2 != 0 && b1 != 0 && b2 != 0) {
+                        c3 = ((c1 / a1) * a2);
+                        b3 = ((b1 / a1) * a2) * (-1);
+                        y = (c2 - c3) / (b3 + b2);
+                        x = (c1 - b1 * y) / a1;
+                        System.out.print("Корни: " + x + " и " + y);
+
+                    } else {
+                        if (a1 == 0 && a2 == 0) {
+                            y = c1 / b1;
+                            y2 = c2 / b2;
+                            if (y == y2) {
+                                System.out.println("Корень y равен, где y1=y2: " + y);
+                            } else {
+                                System.out.println("Корень y по первому уравнению: " + y);
+                                System.out.println("Корень y по второму уравнению: " + y2);
+                            }
+                        } else {
+                            if (b1 == 0 && b2 == 0) {
+                                x = c1 / a1;
+                                x2 = c2 / a2;
+                                if (x == x2) {
+                                    System.out.println("Корень x равен, где x1=x2: " + x);
+                                } else {
+                                    System.out.println("Корень x по первому уравнению: " + x);
+                                    System.out.println("Корень x по второму уравнению: " + x2);
+                                }
+                            } else {
+                                if (a1 == 0) {
+                                    y = c1 / b1;
+                                    x = (c2 - b2 * y) / a2;
+                                    System.out.print("Корни: " + x + " и " + y);
+
+                                }
+                                if (a2 == 0) {
+                                    y = c2 / b2;
+                                    x = (c1 - b1 * y) / a1;
+                                    System.out.print("Корни: " + x + " и " + y);
+
+                                }
+                                if (b1 == 0) {
+                                    x = c1 / a1;
+                                    y = (c2 - a2 * x) / b2;
+                                    System.out.print("Корни: " + x + " и " + y);
+
+                                }
+                                if (b2 == 0) {
+                                    x = c2 / a2;
+                                    y = (c1 - a1 * x) / b1;
+                                    System.out.print("Корни: " + x + " и " + y);
+
+                                }
+
+
+                                if (a1 == 0 && b1 == 0 || a2 == 0 && b2 == 0 || a1 == 0 && b1 == 0 && a2 == 0 || a1 == 0 && b1 == 0 && b2 == 0 || a2 == 0 && b2 == 0 && a1 == 0 || a2 == 0 && b2 == 0 && b1 == 0) {
+                                    System.out.print("Любое решение.");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

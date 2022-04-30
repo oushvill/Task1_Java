@@ -1,0 +1,84 @@
+package com.metanit;
+import org.w3c.dom.ls.LSOutput;
+
+import java.lang.Math;
+
+
+class Vector3D {
+    double x;
+    double y;
+    double z;
+    String name;
+
+    public void print()
+    {
+        System.out.println(name + " = (" + x + ", " + y + ", " + z + ")");
+    }
+
+    Vector3D()
+    {
+        x = y = z = 0;
+        name = "Vector0";
+    }
+
+    Vector3D(double v_x, double v_y, double v_z, String v_name)
+    {
+        this.x = v_x;
+        this.y = v_y;
+        this.z = v_z;
+        this.name = v_name;
+    }
+
+    public void Point3D(double x1, double y1, double z1, double x2, double y2, double z2, String v_name)
+    {
+        x = x2 - x1;
+        y = y2 - y1;
+        z = z2 - z1;
+        name = v_name;
+    }
+
+    public void VecLength(String v_name)
+    {
+        double v_length;
+        name = v_name;
+        v_length = Math.sqrt(x*x + y*y + z*z);
+        System.out.println("Длина " + v_name + ": " + v_length);
+        System.out.println();
+    }
+
+    public double getX()
+    {   return x;   }
+
+    public double getY()
+    {   return y;   }
+
+    public double getZ()
+    {   return z;   }
+
+
+    public void VecEquals(Object v)
+    {
+        Vector3D vector = (Vector3D) v;
+        if(getX() != vector.getX() || getY() != vector.getY() || getZ() != vector.getZ()) {
+            System.out.println("Векторы не равны.");
+        }
+        else {System.out.println("Оба вектора одинаковы.");}
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Vector3D V1 = new Vector3D(4, 5, 9, "Вектор №1");
+        Vector3D V2 = new Vector3D();
+        V2.Point3D(3, 4, 5, 0, 0, 0, "Вектор №2");
+
+        V1.print();
+        V1.VecLength("Вектор №1");
+        V2.print();
+        V2.VecLength("Вектор №2");
+        V1.VecEquals(V2);
+    }
+}
+

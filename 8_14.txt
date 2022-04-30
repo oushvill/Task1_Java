@@ -1,0 +1,138 @@
+package com.metanit;
+
+import org.w3c.dom.ls.LSOutput;
+
+import java.util.Scanner;
+
+
+class ArrayService {
+
+    private int[] arr;
+    private int size;
+    private int a;
+    private int b;
+
+    public void arrayInput() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите длину массива: ");
+        size = in.nextInt();
+        arr = new int[size];
+        System.out.println("Введите значение отрезка {a;b} : ");
+        System.out.print("a=");
+        a = in.nextInt();
+        System.out.print("b=");
+        b = in.nextInt();
+        System.out.println("Введите элементы массива: ");
+        for (int i = 0; i < size; i++) {
+            arr[i] = in.nextInt();
+        }
+    }
+
+    //9
+    public void arrayOutput() {
+        System.out.print("Сам массив: ");
+        for (int i = 0; i < size; i++) {
+            System.out.printf("%d ", arr[i]);
+        }
+        System.out.println();
+    }
+
+    //10
+    public void summaArr() {
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            sum = sum + arr[i];
+        }
+        System.out.println("Сумма элементов: " + sum);
+    }
+
+    //11
+    public void evenArr() {
+        int n = 0;
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] % 2 == 0) {
+                n = n + 1;
+            }
+        }
+        System.out.println("Кол-во четных эл-тов: " + n);
+    }
+
+    //12
+    public void segmentArr() {
+
+        int ot = 0;
+        for (int s = 0; s < arr.length; s++) {
+            if (a <= arr[s] && arr[s] <= b) {
+                ot = ot + 1;
+            }
+            /*if (a > arr[s] && arr[s] > b) {
+                n = 0;
+            }*/
+        }
+        if (ot > 0) {
+            System.out.println("Количество элементов входящих в отрезок: " + ot);
+        } else {
+            System.out.println("Ни один из элементов не входит в отрезок.");
+        }
+    }
+
+    //13
+    public void positiveArr() {
+        boolean p = false;
+        boolean n = false;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] < 0) {
+                p = false;
+                break;
+            } else {
+                p = true;
+                if (arr[i] == 0) {
+                    n = true;
+
+                }
+            }
+
+        }
+        if (n) {
+            System.out.println("В массиве нулевые элементы.");
+        }else {
+            if (!p) {
+                System.out.println("В массиве отрицательные элементы.");
+            }
+            if (p) {
+                System.out.println("В массиве положительные элементы.");
+            }
+        }
+    }
+
+    //14
+    public void reverseArr() {
+        int rev, n = size;
+        System.out.println();
+        System.out.print("Массив в обратном порядке: ");
+        for (int i = 0; i < n / 2; i++) {
+            rev = arr[n - i - 1];
+            arr[n - i - 1] = arr[i];
+            arr[i] = rev;
+        }
+        for (int i = 0; i < size; i++) {
+            System.out.printf("%d ", arr[i]);
+        }
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayService arr = new ArrayService();
+        arr.arrayInput();
+        arr.arrayOutput();  //9
+        arr.summaArr();     //10
+        arr.evenArr();      //11
+        arr.segmentArr();   //12
+        arr.positiveArr();  //13
+        arr.reverseArr();   //14
+    }
+}
+

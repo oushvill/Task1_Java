@@ -1,0 +1,83 @@
+
+package com.metanit;
+
+
+class Point3D {
+    private
+    float x;
+    float y;
+    float z;
+
+    public Point3D(float valueX, float valueY, float valueZ) {
+        x = valueX;
+        y = valueY;
+        z = valueZ;
+    }
+
+
+    float getX() {
+        return x;
+    }
+
+    void setX(float x) {
+        this.x = x;
+    }
+
+    float getY() {
+        return y;
+    }
+
+    void setY(float y) {
+        this.y = y;
+    }
+
+    float getZ() {
+        return z;
+    }
+
+    void setZ(float z) {
+        this.z = z;
+    }
+
+
+    void Print() {
+        System.out.println("X=" + x + " Y=" + y + " Z=" + z);
+        System.out.println();
+    }
+
+    Point3D() {
+        int x0 = 0;
+        int y0 = 0;
+        int z0 = 0;
+        System.out.println("Начало координат является точка О (" + x0 + ";" + y0 + ";" + z0 + ")");
+        System.out.println();
+    }
+}
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Point3D O = new Point3D();
+
+        Point3D a = new Point3D(4, 5, 9);
+        a.Print();
+        Point3D b = new Point3D(6, 5, 9);
+        b.Print();
+
+
+        if ((a.getX() == a.getX()) && (a.getY() == a.getY()) && (a.getZ() == a.getZ())) {
+            System.out.println("Точка А равна самой себе.");
+        }
+
+        if ((b.getX() == b.getX()) && (b.getY() == b.getY()) && (b.getZ() == b.getZ())) {
+            System.out.println("Точка B равна самой себе.");
+        }
+
+        if ((a.getX() == b.getX()) && (a.getY() == b.getY()) && (a.getZ() == b.getZ())) {
+            System.out.println("Точка А равна точке B.");
+        } else {
+            System.out.println("Точка А не равна точке В.");
+        }
+    }
+}
